@@ -24,7 +24,6 @@ const getShows = (query: string) =>
   axios.get<Show[]>(`${SHOWS_ENDPOINT}?q=${query}`);
 
 function* fetchShowsSaga({ payload: query }: AnyAction) {
-  console.log(query);
   try {
     const response: AxiosResponse<Show[]> = yield call(() => getShows(query));
     yield put(

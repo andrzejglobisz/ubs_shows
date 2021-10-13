@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 
 import { fetchShowsRequest } from '../../app/actions/shows';
 
+import './index.scss';
+
 export const ShowsInput: React.FC = () => {
   const dispatch = useDispatch();
   const [query, setQuery] = useState('');
@@ -18,9 +20,8 @@ export const ShowsInput: React.FC = () => {
   };
 
   return (
-    <form>
-      Search for shows:
-      <input type="text" onChange={searchForShows} />
+    <form className="shows-form">
+      Search for shows <input type="text" onChange={searchForShows} />
     </form>
   );
 };

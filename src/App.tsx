@@ -1,15 +1,22 @@
 import React from 'react';
-import { ShowsInput } from './components/ShowsInput';
 
-import './App.css';
+import { ShowsInput } from './components/ShowsInput';
 import { ShowsList } from './components/ShowsList';
+
+import './App.scss';
+import { ShowsTable } from './components/ShowsTable';
 
 const App: React.FC = () => {
   return (
-    <>
-      <ShowsInput />
-      <ShowsList />
-    </>
+    <div className="app">
+      <div className="app__column">
+        <ShowsInput />
+        <ShowsList />
+      </div>
+      <div className="app__column">
+        <ShowsTable />
+      </div>
+    </div>
   );
 };
 

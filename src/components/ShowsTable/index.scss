@@ -1,0 +1,15 @@
+.shows-table {
+  width: 100%;
+  table {
+    width: 100%;
+  }
+  table,
+  th,
+  td {
+    border: 1px solid black;
+  }
+}
+
+.shows-table__row {
+  cursor: pointer;
+}
