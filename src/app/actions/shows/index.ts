@@ -4,6 +4,9 @@ import {
   FetchShowsFailure,
   FetchShowsRequest,
   FetchShowsSuccess,
+  SelectShowPayload,
+  SelectShow,
+  DeselectShow,
 } from '../../types/shows';
 import { ShowsTypes } from '../types';
 
@@ -23,5 +26,15 @@ export const fetchShowsFailure = (
   payload: FetchShowsFailurePayload,
 ): FetchShowsFailure => ({
   type: ShowsTypes.FETCH_SHOWS_FAILURE,
+  payload,
+});
+
+export const selectShow = (payload: SelectShowPayload): SelectShow => ({
+  type: ShowsTypes.SELECT_SHOW,
+  payload,
+});
+
+export const deselectShow = (payload: SelectShowPayload): DeselectShow => ({
+  type: ShowsTypes.DESELECT_SHOW,
   payload,
 });

@@ -7,16 +7,23 @@ export interface Show {
 export interface ShowDetail {
   name: string;
   id: number;
+  status: string;
+  ended: string;
 }
 
 export interface ShowsState {
   pending: boolean;
   shows: Show[];
+  selected: Show[];
   error: string | null;
 }
 
 export interface FetchShowsSuccessPayload {
   shows: Show[];
+}
+
+export interface SelectShowPayload {
+  show: Show;
 }
 
 export interface FetchShowsFailurePayload {
@@ -38,7 +45,19 @@ export type FetchShowsFailure = {
   payload: FetchShowsFailurePayload;
 };
 
+export type SelectShow = {
+  type: typeof ShowsTypes.SELECT_SHOW;
+  payload: SelectShowPayload;
+};
+
+export type DeselectShow = {
+  type: typeof ShowsTypes.DESELECT_SHOW;
+  payload: SelectShowPayload;
+};
+
 export type ShowsActions =
   | FetchShowsRequest
   | FetchShowsSuccess
-  | FetchShowsFailure;
+  | FetchShowsFailure
+  | SelectShow
+  | DeselectShow;
