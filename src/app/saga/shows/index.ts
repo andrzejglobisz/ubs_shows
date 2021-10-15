@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import { AnyAction } from 'redux';
 import {
   all,
@@ -6,11 +6,12 @@ import {
   call,
   ForkEffect,
   put,
+  StrictEffect,
   takeLatest,
 } from 'redux-saga/effects';
 
+import { getShows } from '../../actions/api';
 import { fetchShowsFailure, fetchShowsSuccess } from '../../actions/shows';
-import { SHOWS_ENDPOINT } from '../../constants/api';
 
 import { Show } from '../../types/shows';
 
@@ -20,12 +21,15 @@ enum ShowsTypes {
   FETCH_SHOWS_FAILURE = 'FETCH_SHOWS_FAILURE',
 }
 
-const getShows = (query: string) =>
-  axios.get<Show[]>(`${SHOWS_ENDPOINT}?q=${query}`);
+export type FetchShowsSaga = Generator<
+  StrictEffect,
+  void,
+  AxiosResponse<Show[]>
+>;
 
-function* fetchShowsSaga({ payload: query }: AnyAction) {
+export function* fetchShowsSaga({ payload: query }: AnyAction): FetchShowsSaga {
   try {
-    const response: AxiosResponse<Show[]> = yield call(() => getShows(query));
+    const response: AxiosResponse<Show[]> = yield call(getShows, query);
     yield put(
       fetchShowsSuccess({
         shows: response.data,

@@ -8,7 +8,7 @@ export interface ShowDetail {
   name: string;
   id: number;
   status: string;
-  ended: string;
+  ended: string | null;
 }
 
 export interface ShowsState {

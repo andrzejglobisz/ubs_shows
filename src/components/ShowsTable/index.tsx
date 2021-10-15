@@ -17,21 +17,27 @@ export const ShowsTable: React.FC = () => {
   return (
     <div className="shows-table">
       <table>
-        <th>Selected Shows</th>
-        {shows.map((show) => (
-          <tr
-            key={show.show.id}
-            className="shows-table__row"
-            onClick={() => removeShow(show)}
-            title="Click to remove from the table"
-          >
-            <td>
-              {show.show.name} ({show.show.status}
-              {show.show.ended && ' '}
-              {show.show.ended})
-            </td>
+        <thead>
+          <tr>
+            <th>Selected Shows</th>
           </tr>
-        ))}
+        </thead>
+        <tbody>
+          {shows.map((show) => (
+            <tr
+              key={show.show.id}
+              className="shows-table__row"
+              onClick={() => removeShow(show)}
+              title="Click to remove from the table"
+            >
+              <td>
+                {show.show.name} ({show.show.status}
+                {show.show.ended && ' '}
+                {show.show.ended})
+              </td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );

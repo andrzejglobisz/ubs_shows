@@ -1,7 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { store } from './app/store';
+
+import store from './app/store';
 import App from './App';
 
 test('renders learn react link', () => {
@@ -11,5 +12,5 @@ test('renders learn react link', () => {
     </Provider>,
   );
 
-  expect(getByText(/learn/i)).toBeInTheDocument();
+  expect(getByText('Search for shows')).toBeInTheDocument();
 });

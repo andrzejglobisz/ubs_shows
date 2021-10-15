@@ -49,6 +49,12 @@
         "comments": 160,
         "ignoreStrings": true
       }
+    ],
+    "jest/expect-expect": [
+      "error",
+      {
+        "assertFunctionNames": ["expect", "expectSaga"]
+      }
     ]
   },
   "overrides": [
