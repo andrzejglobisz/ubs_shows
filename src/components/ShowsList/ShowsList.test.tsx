@@ -19,12 +19,23 @@ const TestComponent = () => (
   </Provider>
 );
 
+const TestComponenLoading = () => (
+  <Provider
+    store={mockStore({
+      shows: { mockedShowsState, pending: true },
+    })}
+  >
+    <ShowsList />
+  </Provider>
+);
+
 describe('ShowsList', () => {
   test('renders list of shows', () => {
     render(<TestComponent />);
 
     expect(screen.getByText(/Dimension W/)).toBeInTheDocument();
   });
+
   test('handles selecting show', () => {
     act(() => {
       render(<TestComponent />);
@@ -41,5 +52,11 @@ describe('ShowsList', () => {
     expect(selectAction.payload.show.show.name).toEqual(
       mockedShowsState.shows[0].show.name,
     );
+  });
+
+  test('renders loading indicator', () => {
+    render(<TestComponenLoading />);
+
+    expect(screen.getByText('Loading shows...')).toBeInTheDocument();
   });
 });

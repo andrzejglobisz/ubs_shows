@@ -7,10 +7,10 @@ import './index.scss';
 
 export const ShowsInput: React.FC = () => {
   const dispatch = useDispatch();
-  const [query, setQuery] = useState('');
+  const [query, setQuery] = useState<string>();
 
   useEffect(() => {
-    if (query) {
+    if (query !== undefined) {
       dispatch(fetchShowsRequest(query));
     }
   }, [query]);
