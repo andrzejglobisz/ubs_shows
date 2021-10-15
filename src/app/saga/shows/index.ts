@@ -10,7 +10,7 @@ import {
   takeLatest,
 } from 'redux-saga/effects';
 
-import { getShows } from '../../actions/api';
+import { getShows } from '../../api';
 import { fetchShowsFailure, fetchShowsSuccess } from '../../actions/shows';
 
 import { Show } from '../../types/shows';

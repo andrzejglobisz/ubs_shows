@@ -4,7 +4,7 @@ import { call } from 'redux-saga-test-plan/matchers';
 import { throwError } from 'redux-saga-test-plan/providers';
 
 import { fetchShowsSaga } from '.';
-import { getShows } from '../../actions/api';
+import { getShows } from '../../api';
 import { ShowsTypes } from '../../actions/types';
 import { mockedShowsState } from '../../mocks/store';
 

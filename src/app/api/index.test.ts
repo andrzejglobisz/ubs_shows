@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 import { getShows } from '.';
-import { SHOWS_ENDPOINT } from '../../constants/api';
-import { mockedShows } from '../../mocks/store';
+import { SHOWS_ENDPOINT } from '../constants/api';
+import { mockedShows } from '../mocks/store';
 
 jest.mock('axios');
 
